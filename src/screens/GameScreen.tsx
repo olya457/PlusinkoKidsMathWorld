@@ -160,7 +160,7 @@ export function GameScreen() {
 
   if (mode === 'play') {
     return (
-      <Screen contentStyle={[styles.playContent]}>
+      <Screen backgroundVariant="game" contentStyle={[styles.playContent]}>
         <View style={styles.gameTop}>
           <Pressable onPress={() => setMode('intro')} style={styles.backCircle}>
             <Text style={styles.backText}>‹</Text>
@@ -212,6 +212,7 @@ export function GameScreen() {
 
     return (
       <Screen
+        backgroundVariant="game"
         scroll={compact}
         contentStyle={[
           styles.questionScreen,
@@ -278,7 +279,7 @@ export function GameScreen() {
 
   if (mode === 'result') {
     return (
-      <Screen scroll={compact}>
+      <Screen scroll={compact} backgroundVariant="game">
         <View style={[styles.resultWrap, compact && styles.resultWrapCompact]}>
           <Text
             style={[styles.resultStar, compact && styles.resultStarCompact]}>
@@ -323,7 +324,7 @@ export function GameScreen() {
   }
 
   return (
-    <Screen scroll={compact}>
+    <Screen scroll={compact} backgroundVariant="game">
       <View style={[styles.intro, compact && styles.introCompact]}>
         <Text style={[styles.gameEmoji, compact && styles.gameEmojiCompact]}>
           🎮
@@ -430,7 +431,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 14,
     lineHeight: 21,
-    fontWeight: '700',
+    fontWeight: '800',
   },
   subtitleCompact: {
     fontSize: 13,
@@ -495,8 +496,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 14,
     borderRadius: radii.md,
     borderWidth: 1,
-    borderColor: 'rgba(255,214,10,0.5)',
-    backgroundColor: 'rgba(255,214,10,0.12)',
+    borderColor: 'rgba(255,232,106,0.78)',
+    backgroundColor: 'rgba(255,232,106,0.17)',
   },
   balanceCompact: {
     minHeight: 38,
@@ -519,6 +520,8 @@ const styles = StyleSheet.create({
     width: 38,
     height: 38,
     borderRadius: 19,
+    borderWidth: 1,
+    borderColor: colors.border,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: colors.surfaceSoft,
@@ -542,7 +545,7 @@ const styles = StyleSheet.create({
     fontWeight: '900',
   },
   timerText: {
-    color: colors.violet,
+    color: colors.yellow,
     fontSize: 11,
     fontWeight: '900',
   },
@@ -550,7 +553,7 @@ const styles = StyleSheet.create({
     height: 7,
     overflow: 'hidden',
     borderRadius: 5,
-    backgroundColor: '#252236',
+    backgroundColor: 'rgba(255,255,255,0.18)',
   },
   progressFill: {
     height: '100%',
@@ -564,7 +567,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   countText: {
-    color: 'rgba(255,255,255,0.08)',
+    color: 'rgba(255,255,255,0.14)',
     fontSize: 42,
     fontWeight: '900',
   },
@@ -650,11 +653,11 @@ const styles = StyleSheet.create({
   },
   optionCorrect: {
     borderColor: colors.green,
-    backgroundColor: 'rgba(20,191,115,0.18)',
+    backgroundColor: 'rgba(51,230,139,0.24)',
   },
   optionWrong: {
     borderColor: colors.red,
-    backgroundColor: 'rgba(240,68,100,0.18)',
+    backgroundColor: 'rgba(255,95,132,0.24)',
   },
   optionText: {
     color: colors.text,
@@ -723,12 +726,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
   },
   resultRowGood: {
-    borderColor: 'rgba(20,191,115,0.35)',
-    backgroundColor: 'rgba(20,191,115,0.13)',
+    borderColor: 'rgba(51,230,139,0.48)',
+    backgroundColor: 'rgba(51,230,139,0.18)',
   },
   resultRowBad: {
-    borderColor: 'rgba(240,68,100,0.38)',
-    backgroundColor: 'rgba(240,68,100,0.13)',
+    borderColor: 'rgba(255,95,132,0.52)',
+    backgroundColor: 'rgba(255,95,132,0.18)',
   },
   resultRound: {
     flex: 0.75,
@@ -756,6 +759,7 @@ const styles = StyleSheet.create({
     borderRadius: radii.md,
     borderWidth: 1,
     borderColor: colors.borderStrong,
+    backgroundColor: 'rgba(255,90,184,0.16)',
   },
   outlineText: {
     color: colors.text,

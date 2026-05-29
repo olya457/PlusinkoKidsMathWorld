@@ -94,6 +94,7 @@ export function QuizScreen() {
   if (mode === 'quiz' && currentQuestion) {
     return (
       <Screen
+        backgroundVariant="quiz"
         scroll={responsive.short}
         contentStyle={[
           styles.quizContent,
@@ -195,7 +196,7 @@ export function QuizScreen() {
     const percent = Math.round((correctCount / 5) * 100);
 
     return (
-      <Screen scroll={compact}>
+      <Screen scroll={compact} backgroundVariant="quiz">
         <View style={[styles.resultWrap, compact && styles.resultWrapCompact]}>
           <Text
             style={[styles.resultStar, compact && styles.resultStarCompact]}>
@@ -245,7 +246,7 @@ export function QuizScreen() {
   }
 
   return (
-    <Screen scroll={compact}>
+    <Screen scroll={compact} backgroundVariant="quiz">
       <View
         style={[
           mode === 'intro' ? styles.intro : styles.choose,
@@ -380,7 +381,7 @@ const styles = StyleSheet.create({
     color: colors.muted,
     fontSize: 15,
     lineHeight: 22,
-    fontWeight: '600',
+    fontWeight: '700',
   },
   subtitleCompact: {
     fontSize: 13,
@@ -412,7 +413,7 @@ const styles = StyleSheet.create({
   },
   levelCardActive: {
     borderColor: colors.borderStrong,
-    backgroundColor: '#171428',
+    backgroundColor: 'rgba(255,90,184,0.16)',
   },
   levelIcon: {
     width: 44,
@@ -471,6 +472,8 @@ const styles = StyleSheet.create({
     width: 38,
     height: 38,
     borderRadius: 19,
+    borderWidth: 1,
+    borderColor: colors.border,
     backgroundColor: colors.surfaceSoft,
     alignItems: 'center',
     justifyContent: 'center',
@@ -494,14 +497,14 @@ const styles = StyleSheet.create({
     fontWeight: '800',
   },
   timerText: {
-    color: colors.violet,
+    color: colors.yellow,
     fontSize: 10,
     fontWeight: '900',
   },
   progressTrack: {
     height: 8,
     borderRadius: 6,
-    backgroundColor: '#242235',
+    backgroundColor: 'rgba(255,255,255,0.18)',
     overflow: 'hidden',
   },
   progressFill: {
@@ -556,11 +559,11 @@ const styles = StyleSheet.create({
   },
   optionCorrect: {
     borderColor: colors.green,
-    backgroundColor: 'rgba(20,191,115,0.18)',
+    backgroundColor: 'rgba(51,230,139,0.24)',
   },
   optionWrong: {
     borderColor: colors.red,
-    backgroundColor: 'rgba(240,68,100,0.18)',
+    backgroundColor: 'rgba(255,95,132,0.24)',
   },
   optionLetter: {
     color: colors.muted,
@@ -587,10 +590,10 @@ const styles = StyleSheet.create({
     width: 6,
     height: 6,
     borderRadius: 3,
-    backgroundColor: '#343043',
+    backgroundColor: 'rgba(255,255,255,0.3)',
   },
   questionDotActive: {
-    backgroundColor: colors.pink,
+    backgroundColor: colors.yellow,
   },
   resultWrap: {
     flex: 1,
@@ -626,7 +629,7 @@ const styles = StyleSheet.create({
     fontSize: 21,
   },
   resultStarsMuted: {
-    color: '#3b3849',
+    color: 'rgba(255,255,255,0.28)',
   },
   scorePanel: {
     gap: 12,
@@ -650,7 +653,7 @@ const styles = StyleSheet.create({
     fontWeight: '800',
   },
   scorePercent: {
-    color: colors.violet,
+    color: colors.yellow,
     fontSize: 22,
     fontWeight: '900',
   },
@@ -670,6 +673,7 @@ const styles = StyleSheet.create({
     borderRadius: radii.md,
     borderWidth: 1,
     borderColor: colors.borderStrong,
+    backgroundColor: 'rgba(255,90,184,0.16)',
   },
   outlineText: {
     color: colors.text,

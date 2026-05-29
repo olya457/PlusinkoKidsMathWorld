@@ -47,7 +47,10 @@ export function BlogScreen() {
     const isSaved = saved(article.id);
 
     return (
-      <Screen scroll contentStyle={styles.detailContent}>
+      <Screen
+        scroll
+        backgroundVariant="blog"
+        contentStyle={styles.detailContent}>
         <View style={styles.detailHeader}>
           <Pressable
             onPress={() => setArticle(null)}
@@ -113,7 +116,7 @@ export function BlogScreen() {
   }
 
   return (
-    <Screen scroll>
+    <Screen scroll backgroundVariant="blog">
       <View style={[styles.header, responsive.compact && styles.headerCompact]}>
         <Text style={[styles.title, responsive.compact && styles.titleCompact]}>
           Math Blog
@@ -233,7 +236,7 @@ const styles = StyleSheet.create({
     color: colors.muted,
     fontSize: 15,
     lineHeight: 21,
-    fontWeight: '600',
+    fontWeight: '700',
   },
   subtitleCompact: {
     fontSize: 13,
@@ -249,7 +252,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     borderRadius: radii.md,
     borderWidth: 1,
-    borderColor: 'rgba(151,70,255,0.32)',
+    borderColor: colors.border,
     backgroundColor: colors.surface,
   },
   cardCompact: {
@@ -303,8 +306,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 5,
     borderRadius: 16,
-    color: '#b875ff',
-    backgroundColor: 'rgba(152,56,255,0.2)',
+    color: colors.text,
+    backgroundColor: 'rgba(184,108,255,0.28)',
     fontSize: 12,
     fontWeight: '900',
   },
@@ -345,17 +348,20 @@ const styles = StyleSheet.create({
     minHeight: 34,
     paddingHorizontal: 14,
     borderRadius: 17,
+    borderWidth: 1,
+    borderColor: colors.border,
     backgroundColor: colors.surfaceSoft,
     alignItems: 'center',
     justifyContent: 'center',
   },
   actionActive: {
-    backgroundColor: 'rgba(244,73,166,0.24)',
+    borderColor: colors.borderStrong,
+    backgroundColor: 'rgba(255,90,184,0.28)',
   },
   actionText: {
     color: colors.mutedStrong,
     fontSize: 12,
-    fontWeight: '800',
+    fontWeight: '900',
   },
   detailContent: {
     paddingHorizontal: 0,
@@ -377,6 +383,8 @@ const styles = StyleSheet.create({
     width: 42,
     height: 42,
     borderRadius: 21,
+    borderWidth: 1,
+    borderColor: colors.border,
     backgroundColor: colors.surfaceSoft,
     alignItems: 'center',
     justifyContent: 'center',
@@ -387,7 +395,8 @@ const styles = StyleSheet.create({
     borderRadius: 19,
   },
   savedCircle: {
-    backgroundColor: 'rgba(244,73,166,0.24)',
+    borderColor: colors.borderStrong,
+    backgroundColor: 'rgba(255,90,184,0.28)',
   },
   circleText: {
     color: colors.text,

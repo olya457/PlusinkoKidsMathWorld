@@ -1,4 +1,4 @@
-package com.plusinko.kids.math.world
+package com.smartmathworld
 
 import android.app.Application
 import com.facebook.react.PackageList

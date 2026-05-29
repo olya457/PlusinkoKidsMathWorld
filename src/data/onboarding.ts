@@ -1,4 +1,5 @@
 import type {ImageSourcePropType} from 'react-native';
+import type {AbstractBackgroundVariant} from '../theme/backgrounds';
 import {images} from './assets';
 
 export type OnboardingSlide = {
@@ -8,7 +9,7 @@ export type OnboardingSlide = {
   body: string;
   button: string;
   icon: ImageSourcePropType;
-  background: ImageSourcePropType;
+  backgroundVariant: AbstractBackgroundVariant;
 };
 
 export const onboardingSlides: OnboardingSlide[] = [
@@ -19,7 +20,7 @@ export const onboardingSlides: OnboardingSlide[] = [
     body: 'Specially crafted for young learners who want to explore the magical world of mathematics. Fun, engaging, and designed to help children develop real math skills!',
     button: 'Continue',
     icon: images.onboardingSparkles,
-    background: images.onboardingBgWelcome,
+    backgroundVariant: 'onboardingWelcome',
   },
   {
     id: 'quiz',
@@ -28,7 +29,7 @@ export const onboardingSlides: OnboardingSlide[] = [
     body: 'Test your skills across Beginner, Intermediate, and Advanced categories. Each quiz has 5 timed questions with 4 choices. How many can you get right?',
     button: 'Continue',
     icon: images.onboardingAbacus,
-    background: images.onboardingBgQuiz,
+    backgroundVariant: 'onboardingQuiz',
   },
   {
     id: 'learn',
@@ -37,7 +38,7 @@ export const onboardingSlides: OnboardingSlide[] = [
     body: "Unlock expert tips to sharpen your skills, and explore our blog packed with fascinating math discoveries from infinite hotels to nature's secret formula!",
     button: 'Continue',
     icon: images.onboardingBooks,
-    background: images.onboardingBgLearn,
+    backgroundVariant: 'onboardingLearn',
   },
   {
     id: 'play',
@@ -46,7 +47,7 @@ export const onboardingSlides: OnboardingSlide[] = [
     body: 'Watch carefully as purple balls fall across the screen. Count every single one! Answer correctly after each round to earn points and unlock exclusive wallpapers!',
     button: 'Continue',
     icon: images.onboardingGamepad,
-    background: images.onboardingBgGame,
+    backgroundVariant: 'onboardingGame',
   },
   {
     id: 'start',
@@ -55,6 +56,6 @@ export const onboardingSlides: OnboardingSlide[] = [
     body: 'Whether you are just starting out or already love numbers, MathSpark grows with you. Every problem you solve makes you smarter. Ready to spark your math genius?',
     button: 'Get Started! 🚀',
     icon: images.onboardingRocket,
-    background: images.onboardingBgStart,
+    backgroundVariant: 'onboardingStart',
   },
 ];

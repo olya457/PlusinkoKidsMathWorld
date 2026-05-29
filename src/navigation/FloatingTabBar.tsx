@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     borderRadius: 24,
     borderWidth: 1,
     borderColor: colors.border,
-    backgroundColor: 'rgba(18,17,29,0.94)',
+    backgroundColor: 'rgba(20,13,50,0.94)',
     ...shadow,
   },
   barCompact: {
@@ -118,9 +118,9 @@ const styles = StyleSheet.create({
     height: 27,
   },
   iconWrapActive: {
-    backgroundColor: 'rgba(244,73,166,0.17)',
+    backgroundColor: 'rgba(255,90,184,0.24)',
     borderWidth: 1,
-    borderColor: 'rgba(244,73,166,0.45)',
+    borderColor: 'rgba(255,255,255,0.32)',
   },
   emoji: {
     fontSize: 18,
@@ -135,13 +135,13 @@ const styles = StyleSheet.create({
   label: {
     color: colors.muted,
     fontSize: 10,
-    fontWeight: '700',
+    fontWeight: '800',
   },
   labelCompact: {
     fontSize: 9,
   },
   labelActive: {
-    color: colors.pink,
+    color: colors.text,
   },
   dot: {
     width: 4,
@@ -149,6 +149,6 @@ const styles = StyleSheet.create({
     borderRadius: 2,
   },
   dotActive: {
-    backgroundColor: colors.pink,
+    backgroundColor: colors.yellow,
   },
 });

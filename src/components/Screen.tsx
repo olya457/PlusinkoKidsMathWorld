@@ -1,13 +1,15 @@
 import React from 'react';
 import {ScrollView, StyleProp, StyleSheet, View, ViewStyle} from 'react-native';
-import {colors} from '../theme/theme';
+import type {AbstractBackgroundVariant} from '../theme/backgrounds';
 import {useChromeInsets} from '../theme/useChromeInsets';
 import {useResponsive} from '../theme/useResponsive';
+import {AbstractBackground} from './AbstractBackground';
 
 type ScreenProps = {
   children: React.ReactNode;
   scroll?: boolean;
   withTabPadding?: boolean;
+  backgroundVariant?: AbstractBackgroundVariant;
   style?: StyleProp<ViewStyle>;
   contentStyle?: StyleProp<ViewStyle>;
 };
@@ -16,6 +18,7 @@ export function Screen({
   children,
   scroll,
   withTabPadding = true,
+  backgroundVariant = 'default',
   style,
   contentStyle,
 }: ScreenProps) {
@@ -29,29 +32,34 @@ export function Screen({
 
   if (scroll) {
     return (
-      <ScrollView
-        bounces={false}
-        showsVerticalScrollIndicator={false}
-        style={[styles.container, style]}
-        contentContainerStyle={[styles.content, contentPadding, contentStyle]}>
-        {children}
-      </ScrollView>
+      <AbstractBackground variant={backgroundVariant} style={style}>
+        <ScrollView
+          bounces={false}
+          showsVerticalScrollIndicator={false}
+          style={styles.container}
+          contentContainerStyle={[
+            styles.content,
+            contentPadding,
+            contentStyle,
+          ]}>
+          {children}
+        </ScrollView>
+      </AbstractBackground>
     );
   }
 
   return (
-    <View style={[styles.container, style]}>
+    <AbstractBackground variant={backgroundVariant} style={style}>
       <View style={[styles.content, contentPadding, contentStyle]}>
         {children}
       </View>
-    </View>
+    </AbstractBackground>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.background,
   },
   content: {
     flexGrow: 1,

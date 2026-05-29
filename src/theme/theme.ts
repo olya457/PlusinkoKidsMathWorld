@@ -1,31 +1,31 @@
 import {Platform} from 'react-native';
 
 export const colors = {
-  background: '#05040f',
-  surface: '#12111d',
-  surfaceSoft: '#1a1828',
-  border: 'rgba(255,255,255,0.1)',
-  borderStrong: 'rgba(244,73,166,0.7)',
-  text: '#ffffff',
-  muted: '#8e8a9e',
-  mutedStrong: '#c9c5d5',
-  pink: '#f449a6',
-  violet: '#9838ff',
-  purple: '#6722d5',
-  green: '#14bf73',
-  red: '#f04464',
-  yellow: '#ffd60a',
-  blue: '#3e8cff',
+  background: '#1a0b35',
+  surface: 'rgba(22,16,54,0.9)',
+  surfaceSoft: 'rgba(73,55,160,0.82)',
+  border: 'rgba(255,255,255,0.24)',
+  borderStrong: 'rgba(255,112,202,0.76)',
+  text: '#fff8ff',
+  muted: '#e7dcff',
+  mutedStrong: '#fff0ff',
+  pink: '#ff5ab8',
+  violet: '#b86cff',
+  purple: '#7c4dff',
+  green: '#33e68b',
+  red: '#ff5f84',
+  yellow: '#ffe86a',
+  blue: '#55c3ff',
   black: '#000000',
-  overlay: 'rgba(3,2,10,0.78)',
+  overlay: 'rgba(7,4,22,0.82)',
 };
 
 export const gradients = {
-  primary: ['#9d39ff', '#f449a6'],
-  purple: ['#180632', '#9838ff', '#d11c6f'],
-  green: ['#073d28', '#115d42'],
-  red: ['#431017', '#691a2b'],
-  card: ['#171524', '#11101c'],
+  primary: ['#7d5cff', '#ff5ab8', '#41b9ff'],
+  purple: ['#241052', '#8f5dff', '#ff5ab8'],
+  green: ['#06452f', '#1fbf77'],
+  red: ['#531122', '#b92f57'],
+  card: ['rgba(38,25,88,0.94)', 'rgba(18,12,48,0.94)'],
 };
 
 export const radii = {
@@ -45,9 +45,9 @@ export const layout = {
 export const shadow = Platform.select({
   ios: {
     shadowColor: colors.pink,
-    shadowOpacity: 0.28,
-    shadowRadius: 18,
-    shadowOffset: {width: 0, height: 10},
+    shadowOpacity: 0.36,
+    shadowRadius: 20,
+    shadowOffset: {width: 0, height: 12},
   },
   android: {
     elevation: 10,

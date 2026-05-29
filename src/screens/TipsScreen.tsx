@@ -31,7 +31,7 @@ export function TipsScreen() {
 
   return (
     <>
-      <Screen scroll>
+      <Screen scroll backgroundVariant="tips">
         <View
           style={[styles.header, responsive.compact && styles.headerCompact]}>
           <Text
@@ -183,7 +183,7 @@ const styles = StyleSheet.create({
     color: colors.muted,
     fontSize: 15,
     lineHeight: 21,
-    fontWeight: '600',
+    fontWeight: '700',
   },
   subtitleCompact: {
     fontSize: 13,
@@ -205,7 +205,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     borderRadius: radii.md,
     borderWidth: 1,
-    borderColor: 'rgba(151,70,255,0.35)',
+    borderColor: colors.border,
     backgroundColor: colors.surface,
   },
   tipCardCompact: {
@@ -248,7 +248,9 @@ const styles = StyleSheet.create({
     width: 38,
     height: 38,
     borderRadius: 19,
-    backgroundColor: 'rgba(244,73,166,0.18)',
+    borderWidth: 1,
+    borderColor: colors.borderStrong,
+    backgroundColor: 'rgba(255,90,184,0.24)',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -278,7 +280,7 @@ const styles = StyleSheet.create({
     borderRadius: radii.xl,
     borderWidth: 1,
     borderColor: colors.borderStrong,
-    backgroundColor: colors.background,
+    backgroundColor: 'rgba(22,16,54,0.98)',
     ...shadow,
   },
   modalCardCompact: {
@@ -289,6 +291,8 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 20,
+    borderWidth: 1,
+    borderColor: colors.border,
     backgroundColor: colors.surfaceSoft,
     alignItems: 'center',
     justifyContent: 'center',

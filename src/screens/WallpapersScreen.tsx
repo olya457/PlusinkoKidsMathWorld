@@ -26,7 +26,7 @@ export function WallpapersScreen() {
   }
 
   return (
-    <Screen scroll>
+    <Screen scroll backgroundVariant="walls">
       <View style={[styles.header, responsive.compact && styles.headerCompact]}>
         <Text style={[styles.title, responsive.compact && styles.titleCompact]}>
           Wallpapers
@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
     color: colors.muted,
     fontSize: 15,
     lineHeight: 21,
-    fontWeight: '600',
+    fontWeight: '700',
   },
   subtitleCompact: {
     fontSize: 13,
@@ -166,8 +166,8 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     borderRadius: 24,
     borderWidth: 1,
-    borderColor: 'rgba(255,214,10,0.65)',
-    backgroundColor: 'rgba(255,214,10,0.11)',
+    borderColor: 'rgba(255,232,106,0.78)',
+    backgroundColor: 'rgba(255,232,106,0.17)',
   },
   pointsPillCompact: {
     marginTop: 4,
@@ -259,7 +259,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 19,
-    backgroundColor: 'rgba(255,214,10,0.1)',
+    borderWidth: 1,
+    borderColor: 'rgba(255,232,106,0.62)',
+    backgroundColor: 'rgba(255,232,106,0.18)',
   },
   costDisabled: {
     opacity: 0.45,
@@ -274,13 +276,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 14,
     borderRadius: 19,
     borderWidth: 1,
-    borderColor: 'rgba(66,214,118,0.48)',
-    backgroundColor: 'rgba(66,214,118,0.12)',
+    borderColor: 'rgba(51,230,139,0.62)',
+    backgroundColor: 'rgba(51,230,139,0.18)',
     alignItems: 'center',
     justifyContent: 'center',
   },
   unlockedText: {
-    color: '#42d676',
+    color: colors.green,
     fontSize: 13,
     fontWeight: '900',
   },

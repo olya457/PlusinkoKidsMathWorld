@@ -77,9 +77,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace "com.plusinko.kids.math.world"
+    namespace "com.smartmathworld"
     defaultConfig {
-        applicationId "com.plusinko.kids.math.world"
+        applicationId "com.smartmathworld"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

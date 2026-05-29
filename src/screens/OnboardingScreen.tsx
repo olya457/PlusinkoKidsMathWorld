@@ -1,13 +1,7 @@
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import React, {useMemo, useState} from 'react';
-import {
-  Image,
-  ImageBackground,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import {Image, Pressable, StyleSheet, Text, View} from 'react-native';
+import {AbstractBackground} from '../components/AbstractBackground';
 import {GradientButton} from '../components/GradientButton';
 import {onboardingSlides} from '../data/onboarding';
 import type {RootStackParamList} from '../navigation/types';
@@ -62,10 +56,7 @@ export function OnboardingScreen({navigation}: Props) {
   }
 
   return (
-    <ImageBackground
-      source={slide.background}
-      resizeMode="cover"
-      style={styles.bg}>
+    <AbstractBackground variant={slide.backgroundVariant} style={styles.bg}>
       <View
         style={[
           styles.content,
@@ -136,7 +127,7 @@ export function OnboardingScreen({navigation}: Props) {
           )}
         </View>
       </View>
-    </ImageBackground>
+    </AbstractBackground>
   );
 }
 
@@ -200,10 +191,10 @@ const styles = StyleSheet.create({
     lineHeight: 28,
   },
   accent: {
-    color: colors.pink,
+    color: colors.yellow,
     fontSize: 15,
     lineHeight: 20,
-    fontWeight: '800',
+    fontWeight: '900',
     textAlign: 'center',
   },
   accentShort: {
@@ -236,19 +227,19 @@ const styles = StyleSheet.create({
     width: 7,
     height: 7,
     borderRadius: 4,
-    backgroundColor: 'rgba(255,255,255,0.28)',
+    backgroundColor: 'rgba(255,255,255,0.42)',
   },
   activeDot: {
     width: 24,
-    backgroundColor: colors.pink,
+    backgroundColor: colors.yellow,
   },
   skipWrap: {
     alignSelf: 'center',
     paddingVertical: 4,
   },
   skip: {
-    color: 'rgba(255,255,255,0.35)',
+    color: 'rgba(255,255,255,0.78)',
     fontSize: 13,
-    fontWeight: '700',
+    fontWeight: '800',
   },
 });

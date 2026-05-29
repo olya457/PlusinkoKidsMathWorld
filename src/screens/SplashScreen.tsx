@@ -4,11 +4,11 @@ import {
   Animated,
   Easing,
   Image,
-  ImageBackground,
   StyleSheet,
   useWindowDimensions,
   View,
 } from 'react-native';
+import {AbstractBackground} from '../components/AbstractBackground';
 import {images} from '../data/assets';
 import type {RootStackParamList} from '../navigation/types';
 import {useAppState} from '../state/AppStateContext';
@@ -72,10 +72,7 @@ export function SplashScreen({navigation}: Props) {
   const cardSize = Math.min(width - 70, 320);
 
   return (
-    <ImageBackground
-      source={images.onboardingBgWelcome}
-      resizeMode="cover"
-      style={styles.container}>
+    <AbstractBackground variant="splash" style={styles.container}>
       <View style={styles.center}>
         <Animated.View
           style={[
@@ -93,7 +90,7 @@ export function SplashScreen({navigation}: Props) {
           />
         </Animated.View>
       </View>
-    </ImageBackground>
+    </AbstractBackground>
   );
 }
 
@@ -111,7 +108,7 @@ const styles = StyleSheet.create({
     borderRadius: radii.lg,
     overflow: 'hidden',
     borderWidth: 1,
-    borderColor: 'rgba(255,255,255,0.35)',
+    borderColor: 'rgba(255,255,255,0.5)',
     backgroundColor: colors.surface,
   },
   image: {

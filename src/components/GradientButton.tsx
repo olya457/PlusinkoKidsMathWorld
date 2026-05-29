@@ -5,9 +5,11 @@ import {
   StyleProp,
   StyleSheet,
   Text,
+  View,
   ViewStyle,
 } from 'react-native';
-import {colors, radii, shadow} from '../theme/theme';
+import LinearGradient from 'react-native-linear-gradient';
+import {colors, gradients, radii, shadow} from '../theme/theme';
 import {useResponsive} from '../theme/useResponsive';
 
 type GradientButtonProps = {
@@ -40,6 +42,13 @@ export function GradientButton({
         (disabled || loading) && styles.disabled,
         pressed && !disabled && styles.pressed,
       ]}>
+      <LinearGradient
+        colors={gradients.primary}
+        start={{x: 0, y: 0}}
+        end={{x: 1, y: 1}}
+        style={StyleSheet.absoluteFill}
+      />
+      <View style={styles.gloss} />
       {loading ? (
         <ActivityIndicator color={colors.text} />
       ) : (
@@ -62,8 +71,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 22,
     borderRadius: radii.md,
     borderWidth: 1,
-    borderColor: 'rgba(255,255,255,0.14)',
+    borderColor: 'rgba(255,255,255,0.35)',
     backgroundColor: colors.pink,
+    overflow: 'hidden',
     ...shadow,
   },
   buttonCompact: {
@@ -75,7 +85,10 @@ const styles = StyleSheet.create({
   text: {
     color: colors.text,
     fontSize: 16,
-    fontWeight: '800',
+    fontWeight: '900',
+    textShadowColor: 'rgba(35,0,68,0.42)',
+    textShadowOffset: {width: 0, height: 1},
+    textShadowRadius: 4,
   },
   textCompact: {
     fontSize: 15,
@@ -85,5 +98,13 @@ const styles = StyleSheet.create({
   },
   pressed: {
     transform: [{scale: 0.98}],
+  },
+  gloss: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    height: '48%',
+    backgroundColor: 'rgba(255,255,255,0.16)',
   },
 });

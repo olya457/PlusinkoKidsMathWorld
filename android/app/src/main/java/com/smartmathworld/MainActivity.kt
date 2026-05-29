@@ -1,4 +1,4 @@
-package com.plusinko.kids.math.world
+package com.smartmathworld
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate
