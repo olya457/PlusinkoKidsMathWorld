@@ -5,6 +5,7 @@ import {MathArticle, mathArticles} from '../data/articles';
 import {useAppState} from '../state/AppStateContext';
 import {colors, radii} from '../theme/theme';
 import {useResponsive} from '../theme/useResponsive';
+import {cleanAudienceText} from '../utils/displayText';
 
 export function BlogScreen() {
   const [article, setArticle] = useState<MathArticle | null>(null);
@@ -39,7 +40,7 @@ export function BlogScreen() {
 
   async function shareArticle(item: MathArticle) {
     await Share.share({
-      message: `${item.title}\n\n${item.excerpt}`,
+      message: `${item.title}\n\n${cleanAudienceText(item.excerpt)}`,
     });
   }
 
@@ -105,7 +106,7 @@ export function BlogScreen() {
               styles.paragraph,
               responsive.compact && styles.paragraphCompact,
             ]}>
-            {paragraph}
+            {cleanAudienceText(paragraph)}
           </Text>
         ))}
       </Screen>
@@ -178,7 +179,7 @@ export function BlogScreen() {
                     styles.cardExcerpt,
                     responsive.compact && styles.cardExcerptCompact,
                   ]}>
-                  {item.excerpt}
+                  {cleanAudienceText(item.excerpt)}
                 </Text>
                 <View
                   style={[

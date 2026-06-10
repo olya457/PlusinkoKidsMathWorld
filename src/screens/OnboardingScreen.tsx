@@ -15,6 +15,7 @@ import {useAppState} from '../state/AppStateContext';
 import {colors} from '../theme/theme';
 import {useChromeInsets} from '../theme/useChromeInsets';
 import {useResponsive} from '../theme/useResponsive';
+import {cleanAudienceText} from '../utils/displayText';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Onboarding'>;
 
@@ -109,13 +110,13 @@ export function OnboardingScreen({navigation}: Props) {
             {slide.title}
           </Text>
           <Text style={[styles.accent, responsive.short && styles.accentShort]}>
-            {slide.accent}
+            {cleanAudienceText(slide.accent)}
           </Text>
           <Text
             numberOfLines={responsive.tiny ? 4 : compact ? 5 : 7}
             adjustsFontSizeToFit
             style={[styles.body, responsive.short && styles.bodyShort]}>
-            {slide.body}
+            {cleanAudienceText(slide.body)}
           </Text>
         </View>
 
