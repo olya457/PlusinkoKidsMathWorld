@@ -12,6 +12,17 @@ import {useResponsive} from '../theme/useResponsive';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Onboarding'>;
 
+const cleanText = (text: string) =>
+  text
+    .replace(/\bAmazing\b/gi, 'Space')
+    .replace(/\bBest\b/gi, '')
+    .replace(/\bTop\b/gi, '')
+    .replace(/#1/gi, '')
+    .replace(/\bUltimate\b/gi, '')
+    .replace(/\bPerfect\b/gi, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+
 export function OnboardingScreen({navigation}: Props) {
   const [index, setIndex] = useState(0);
   const chrome = useChromeInsets();
@@ -34,12 +45,7 @@ export function OnboardingScreen({navigation}: Props) {
     }
 
     return Math.min(132, Math.max(104, responsive.height * 0.16));
-  }, [
-    responsive.compact,
-    responsive.height,
-    responsive.short,
-    responsive.tiny,
-  ]);
+  }, [responsive.compact, responsive.height, responsive.short, responsive.tiny]);
 
   function finish() {
     setOnboardingComplete(true);
@@ -97,16 +103,18 @@ export function OnboardingScreen({navigation}: Props) {
               compact && styles.titleCompact,
               responsive.tiny && styles.titleTiny,
             ]}>
-            {slide.title}
+            {cleanText(slide.title)}
           </Text>
+
           <Text style={[styles.accent, responsive.short && styles.accentShort]}>
-            {slide.accent}
+            {cleanText(slide.accent)}
           </Text>
+
           <Text
             numberOfLines={responsive.tiny ? 4 : compact ? 5 : 7}
             adjustsFontSizeToFit
             style={[styles.body, responsive.short && styles.bodyShort]}>
-            {slide.body}
+            {cleanText(slide.body)}
           </Text>
         </View>
 
@@ -119,10 +127,12 @@ export function OnboardingScreen({navigation}: Props) {
               />
             ))}
           </View>
-          <GradientButton title={slide.button} onPress={goNext} />
+
+          <GradientButton title={cleanText(slide.button)} onPress={goNext} />
+
           {index < onboardingSlides.length - 1 && (
             <Pressable onPress={finish} hitSlop={12} style={styles.skipWrap}>
-              <Text style={styles.skip}>Skip for now</Text>
+              <Text style={styles.skip}>Skip</Text>
             </Pressable>
           )}
         </View>
